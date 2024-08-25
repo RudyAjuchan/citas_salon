@@ -3,6 +3,7 @@ import '../pages/agendar_citas.dart';
 import '../pages/mis_citas.dart';
 import '../pages/perfil.dart';
 import '../pages/contacto.dart';
+import '../pages/acerca_de.dart';
 import 'home_screen.dart';
 import 'package:get/get.dart';
 
@@ -81,6 +82,16 @@ class Navbar extends StatelessWidget {
                 )),
             onTap: () => {
               Get.to(const ContactoScreen()),
+            },
+          ),
+          ListTile(
+            leading: Image.asset('assets/icons/info.png'),
+            title: const Text('Acerca de la aplicación',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 105, 105, 105),
+                )),
+            onTap: () => {
+              Get.to(const Acerca()),
             },
           ),
           const Divider(),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import '../screens/navbar.dart';
 
 class ContactoScreen extends StatefulWidget {
   const ContactoScreen({super.key});
@@ -14,16 +14,28 @@ class _ContactoScreenState extends State<ContactoScreen> {
   final String _telefono = '+1 (555) 123-4567';
   final String _instagram = '@salondebellexa';
   final String _facebook = 'salondebellexa';
+  final String _horario =
+      'Lunes a Viernes: 9:00 AM - 7:00 PM\nSábados: 10:00 AM - 5:00 PM';
+  final String _servicios =
+      'Corte de cabello\nColoración\nManicura\nPedicura\nMaquillaje';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const Navbar(),
       appBar: AppBar(
-        title: const Text('Contacto'),
+        title: const Text(
+          'Contacto',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: Colors.pink,
+        foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(30.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -51,6 +63,22 @@ class _ContactoScreenState extends State<ContactoScreen> {
                 ),
               ),
               const SizedBox(height: 16),
+              Text(
+                _horario,
+                style: const TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey,
+                ),
+              ),
+              const SizedBox(height: 16),
+              Text(
+                _servicios,
+                style: const TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey,
+                ),
+              ),
+              const SizedBox(height: 16),
               Row(
                 children: [
                   Icon(
@@ -69,24 +97,16 @@ class _ContactoScreenState extends State<ContactoScreen> {
                 ],
               ),
               const SizedBox(height: 32),
-              SizedBox(
-                height: 300,
-                child: GoogleMap(
-                  initialCameraPosition: const CameraPosition(
-                    target: LatLng(40.730610, -73.935242),
-                    zoom: 15,
-                  ),
-                  markers: {
-                    Marker(
-                      markerId: const MarkerId('salon'),
-                      position: const LatLng(40.730610, -73.935242),
-                      infoWindow: InfoWindow(
-                        title: _nombre,
-                        snippet: _direccion,
-                      ),
-                    ),
-                  },
-                ),
+              Image.asset('assets/images/fondo_navbar.jpg', fit: BoxFit.cover),
+              const SizedBox(height: 16),
+              const Divider(),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () {},
+                child: const Text('Realizar cita',
+                    style: TextStyle(
+                      color: Colors.pink,
+                    )),
               ),
             ],
           ),

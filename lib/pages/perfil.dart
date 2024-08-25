@@ -19,7 +19,7 @@ class _PerfilScreenState extends State<PerfilScreen> {
       drawer: const Navbar(),
       appBar: AppBar(
         title: const Text(
-          'Inicio',
+          'Perfil',
           style: TextStyle(
             color: Colors.white,
           ),
